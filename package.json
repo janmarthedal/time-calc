@@ -17,10 +17,12 @@
   "author": "Jan Marthedal Rasmussen",
   "license": "MIT",
   "dependencies": {
+    "luxon": "^1.16.0",
     "preact": "~8.2.6",
     "typescript": "~2.5.3"
   },
   "devDependencies": {
+    "@types/luxon": "^1.15.1",
     "awesome-typescript-loader": "~3.2.3",
     "webpack": "~3.8.1",
     "webpack-dev-server": "~2.9.3"
