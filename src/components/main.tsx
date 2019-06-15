@@ -51,6 +51,10 @@ class DateInput extends Component<{ onChange: (value: string) => void }> {
 			this.setState({ text });
 			onChange(parseTime(text, zone));
 		};
+		const updateZone = (zone: string) => {
+			this.setState({ zone });
+			onChange(parseTime(text, zone));
+		};
 		return (
 			<form class="pure-form">
 				<input
@@ -58,11 +62,18 @@ class DateInput extends Component<{ onChange: (value: string) => void }> {
 					value={text}
 					onInput={e => updateText((e.target as HTMLInputElement).value)}
 				/>
-				<TimeZone zone={zone} onChange={_ => {}}/>
+				<TimeZone zone={zone} onChange={updateZone}/>
 			</form>
 		);
 	}
 }
+
+const InputReadOnly = ({ value }: { value: string }) => (
+  <input
+    type="text" value={value} readOnly
+    style={{ backgroundColor: 'inherit', color: 'inherit' }}
+  />
+);
 
 class DateOutput extends Component<{ datetime: DateTime }, { zone: string }> {
 	state = {
@@ -71,11 +82,13 @@ class DateOutput extends Component<{ datetime: DateTime }, { zone: string }> {
 	render({ datetime }, { zone }) {
 		return datetime	? (
 			<form class="pure-form">
+        <InputReadOnly
+          value={datetime.setZone(zone).toISO({ suppressMilliseconds: true })}
+        />
 				<TimeZone zone={zone} onChange={zone => this.setState({ zone })} />
-				<p>ISO: {datetime.setZone(zone).toISO({ suppressMilliseconds: true })}</p>
-				<p>Epoch: {datetime.toMillis()}</p>
+        <p>Epoch (ms): {datetime.toMillis()}</p>
 			</form>
-		) : (
+    ) : (
       <span>No legal date</span>
     );
 	}
