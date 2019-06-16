@@ -1,7 +1,9 @@
 import { h, Component } from 'preact';
 import Router from 'preact-router';
+import { DateTime } from 'luxon';
 import DateInput from './date-input';
 import DateOutput from './date-output';
+import EpochInput from './epoch-input';
 
 class Menu extends Component<{ page: number }> {
 	render({ page }) {
@@ -21,7 +23,7 @@ class Menu extends Component<{ page: number }> {
 	}
 }
 
-class MainDateTime extends Component {
+class MainDateTime extends Component<{}, { datetime: DateTime }> {
 	state = {
 		datetime: null
 	}
@@ -32,18 +34,35 @@ class MainDateTime extends Component {
 				<h2>Input</h2>
 				<DateInput onChange={dt => this.setState({ datetime: dt })} />
 				<h2>Output</h2>
-				<DateOutput datetime={ datetime } />
+				{datetime ?
+					<div>
+						<DateOutput datetime={ datetime } />
+						<p>Epoch (ms): {datetime.toMillis()}</p>
+					</div>
+					: <span>No legal date</span>
+				}				
 			</div>
 		);
 	}
 }
 
-class MainEpoch extends Component {
-	render() {
+class MainEpoch extends Component<{}, { datetime: DateTime }> {
+	state = {
+		datetime: null
+	}
+	render({}, { datetime }) {
 		return (
 			<div>
 				<Menu page={2} />
-				<h2>Epoch</h2>
+				<h2>Input</h2>
+				<EpochInput onChange={dt => this.setState({ datetime: dt })} />
+				<h2>Output</h2>
+				{datetime ?
+					<div>
+						<DateOutput datetime={ datetime } />
+					</div>
+					: <span>No legal epoch</span>
+				}				
 			</div>
 		);
 	}

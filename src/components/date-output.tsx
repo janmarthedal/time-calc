@@ -12,16 +12,13 @@ export default class DateOutput extends Component<
 		zone: localZone
 	}
 	render({ datetime }, { zone }) {
-		return datetime	? (
+		return (
 			<form class="pure-form">
 				<InputReadOnly
-				value={datetime.setZone(zone).toISO({ suppressMilliseconds: true })}
+					value={datetime.setZone(zone).toISO({ suppressMilliseconds: true })}
 				/>
 				<TimeZone zone={zone} onChange={zone => this.setState({ zone })} />
-				<p>Epoch (ms): {datetime.toMillis()}</p>
 			</form>
-		) : (
-		<span>No legal date</span>
 		);
 	}
 }

@@ -5,7 +5,7 @@ import TimeZone from './timezone';
 const localZone = DateTime.local().zone.name;
 
 export default class DateInput extends Component<
-	{ onChange: (value: string) => void },
+	{ onChange: (value: DateTime) => void },
 	{ text: string, zone: string, ownZone: boolean }
 > {
 	state = {
