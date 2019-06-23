@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import { Link } from 'preact-router';
 
 export default class Menu extends Component<{ baseUrl: string, page: number }> {
 	render({ baseUrl, page }) {
@@ -6,13 +7,13 @@ export default class Menu extends Component<{ baseUrl: string, page: number }> {
 			<div>
 				{page === 1
 					? <button class="pure-button pure-button-disabled pure-button-primary">DateTime</button>
-					: <a class="pure-button" href={baseUrl}>DateTime</a>}
+					: <Link class="pure-button" href={baseUrl}>DateTime</Link>}
 				{page === 2
 					? <button class="pure-button pure-button-disabled pure-button-primary">Epoch</button>
-					: <a class="pure-button" href={baseUrl + "epoch"}>Epoch</a>}
+					: <Link class="pure-button" href={baseUrl + "epoch"}>Epoch</Link>}
 				{page === 3
 					? <button class="pure-button pure-button-disabled pure-button-primary">Duration</button>
-					: <a class="pure-button" href={baseUrl + "duration"}>Duration</a>}
+					: <Link class="pure-button" href={baseUrl + "duration"}>Duration</Link>}
 			</div>
 		);
 	}
