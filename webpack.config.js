@@ -11,6 +11,9 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   devtool: 'source-map',
+  externals: {
+    luxon: 'luxon'
+  },
   module: {
     rules: [{
       test: /\.tsx?$/,
