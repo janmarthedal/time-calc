@@ -8,6 +8,7 @@ export default class TimeZone extends Component<{
 			<input 
 				type="text"
 				value={zone}
+				list="timezones"
 				onInput={e => onChange((e.target as HTMLInputElement).value)}
 				disabled={disabled}
 			/>

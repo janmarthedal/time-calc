@@ -2,14 +2,13 @@ import { DateTime } from 'luxon';
 import { h, Component } from 'preact';
 import InputReadOnly from './input-readonly';
 import TimeZone from './timezone';
-
-const localZone = DateTime.local().zone.name;
+import { zoneLocal } from '../lib/globals';
 
 export default class DateOutput extends Component<
     { datetime: DateTime }, { zone: string }
 > {
 	state = {
-		zone: localZone
+		zone: zoneLocal
 	}
 	render({ datetime }, { zone }) {
 		return (

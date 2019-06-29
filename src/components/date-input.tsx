@@ -1,8 +1,7 @@
 import { DateTime } from 'luxon';
 import { h, Component } from 'preact';
 import TimeZone from './timezone';
-
-const localZone = DateTime.local().zone.name;
+import { zoneLocal } from '../lib/globals';
 
 export default class DateInput extends Component<
 	{ onChange: (value: DateTime) => void },
@@ -10,7 +9,7 @@ export default class DateInput extends Component<
 > {
 	state = {
 		text: '',
-		zone: localZone,
+		zone: zoneLocal,
 		ownZone: false
 	}
 	render({ onChange }, { text, zone, ownZone }) {
