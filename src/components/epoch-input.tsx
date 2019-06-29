@@ -16,8 +16,9 @@ export default class EpochInput extends Component<
 			this.setState({ text });
 		}
 		return (
-			<form class="pure-form">
+			<form class="pure-form pure-g">
 				<input
+					class="pure-u-1 pure-u-md-3-5"
 					type="text"
 					value={text}
 					onInput={e => updateState((e.target as HTMLInputElement).value)}

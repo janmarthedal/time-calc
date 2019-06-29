@@ -34,13 +34,18 @@ export default class DateInput extends Component<
 		const updateText = (text: string) => updateState(text, zone, ownZone);
 		const updateZone = (zone: string) => updateState(text, zone, ownZone);
 		return (
-			<form class="pure-form">
+			<form class="pure-form pure-g">
 				<input
+					class="pure-u-1 pure-u-md-3-5"
 					type="text"
 					value={text}
 					onInput={e => updateText((e.target as HTMLInputElement).value)}
 				/>
-				<TimeZone zone={zone} onChange={updateZone} disabled={ownZone}/>
+				<TimeZone
+					zone={zone}
+					onChange={updateZone}
+					disabled={ownZone}
+				/>
 			</form>
 		);
 	}

@@ -12,7 +12,7 @@ export default class DateOutput extends Component<
 	}
 	render({ datetime }, { zone }) {
 		return (
-			<form class="pure-form">
+			<form class="pure-form pure-g">
 				<InputReadOnly
 					value={datetime.setZone(zone).toISO({ suppressMilliseconds: true })}
 				/>
