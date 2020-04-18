@@ -19,7 +19,6 @@
   "dependencies": {
     "luxon": "^1.16.0",
     "preact": "^8.4.2",
-    "preact-router": "^2.6.1",
     "typescript": "^3.5.2"
   },
   "devDependencies": {
