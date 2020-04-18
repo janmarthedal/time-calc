@@ -12,20 +12,21 @@
   "keywords": [
     "frontend",
     "preact",
-    "typescript"
+    "typescript",
+    "datetime"
   ],
   "author": "Jan Marthedal Rasmussen",
   "license": "MIT",
   "dependencies": {
-    "luxon": "^1.16.0",
-    "preact": "^8.4.2",
-    "typescript": "^3.5.2"
+    "luxon": "^1.23.0",
+    "preact": "^10.4.0",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
-    "@types/luxon": "^1.15.1",
+    "@types/luxon": "^1.22.0",
     "awesome-typescript-loader": "^5.2.1",
-    "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.7.1"
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }
