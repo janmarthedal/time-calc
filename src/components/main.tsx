@@ -10,12 +10,12 @@ export default class Main extends Component {
 		return (
 			<main>
 				<h1>Time Calculator</h1>
-				<section>
-					<h2>Datetime</h2>
+				<section class="pure-form">
+					<legend>Datetime</legend>
 					<MainDateTime />
 				</section>
-				<section>
-					<h2>Epoch</h2>
+				<section class="pure-form">
+					<legend>Epoch</legend>
 					<MainEpoch />
 				</section>
 				<datalist id="timezones">

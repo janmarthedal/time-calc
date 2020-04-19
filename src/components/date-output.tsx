@@ -16,7 +16,7 @@ export default class DateOutput extends Component<
 			<Fragment>
 				<InputReadOnly
 					value={datetime ? datetime.setZone(zone).toISO({ suppressMilliseconds: true }) : 'Invalid input'}
-					disable={!datetime}
+					invalid={!datetime}
 				/>
 				{
 					datetime &&

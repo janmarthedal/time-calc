@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import { DateTime } from 'luxon';
 import DateInput from './date-input';
 import DateOutput from './date-output';
@@ -10,17 +10,17 @@ export default class MainDateTime extends Component<{}, { datetime: DateTime }> 
 	}
 	render({}, { datetime }) {
 		return (
-			<div className="pure-form pure-g">
-				<label className="pure-u-1">Input ISO datetime</label>
+			<Fragment>
+				<label class="pure-u-1">Input ISO datetime</label>
 				<DateInput onChange={dt => this.setState({ datetime: dt })} />
-				<label className="pure-u-1">Output ISO datetime</label>
+				<label class="pure-u-1">Output ISO datetime</label>
 				<DateOutput datetime={ datetime } />
-				<label className="pure-u-1">Output epoch (ms)</label>
+				<label class="pure-u-1">Output epoch (ms)</label>
 				<InputReadonly
 					value={datetime ? datetime.toMillis() : 'Invalid input'}
-					disable={!datetime}
+					invalid={!datetime}
 				/>
-			</div>
+			</Fragment>
 		);
 	}
 }

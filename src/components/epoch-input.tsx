@@ -17,7 +17,7 @@ export default class EpochInput extends Component<
 		}
 		return (
 			<input
-				className="pure-u-1 pure-u-md-3-5"
+				class="pure-u-1 pure-u-md-3-5"
 				type="text"
 				value={text}
 				onInput={e => updateState((e.target as HTMLInputElement).value)}

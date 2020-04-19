@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import { DateTime } from 'luxon';
 import EpochInput from './epoch-input';
 import DateOutput from './date-output';
@@ -9,12 +9,12 @@ export default class MainEpoch extends Component<{}, { datetime: DateTime }> {
 	}
 	render({}, { datetime }) {
 		return (
-			<div className="pure-form pure-g">
-				<label className="pure-u-1">Input epoch</label>
+			<Fragment>
+				<label class="pure-u-1">Input epoch (ms)</label>
 				<EpochInput onChange={dt => this.setState({ datetime: dt })} />
-				<label className="pure-u-1">Output ISO datetime</label>
+				<label class="pure-u-1">Output ISO datetime</label>
 				<DateOutput datetime={ datetime } />
-			</div>
+			</Fragment>
 		);
 	}
 }
