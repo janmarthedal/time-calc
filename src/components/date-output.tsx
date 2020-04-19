@@ -1,3 +1,4 @@
+import { Fragment } from 'preact';
 import { DateTime } from 'luxon';
 import { h, Component } from 'preact';
 import InputReadOnly from './input-readonly';
@@ -12,12 +13,16 @@ export default class DateOutput extends Component<
 	}
 	render({ datetime }, { zone }) {
 		return (
-			<form class="pure-form pure-g">
+			<Fragment>
 				<InputReadOnly
-					value={datetime.setZone(zone).toISO({ suppressMilliseconds: true })}
+					value={datetime ? datetime.setZone(zone).toISO({ suppressMilliseconds: true }) : 'Invalid input'}
+					disable={!datetime}
 				/>
-				<TimeZone zone={zone} onChange={zone => this.setState({ zone })} />
-			</form>
+				{
+					datetime &&
+					<TimeZone zone={zone} onChange={zone => this.setState({ zone })} />
+				}
+			</Fragment>
 		);
 	}
 }

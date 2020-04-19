@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import { DateTime } from 'luxon';
 import DateInput from './date-input';
 import DateOutput from './date-output';
+import InputReadonly from './input-readonly';
 
 export default class MainDateTime extends Component<{}, { datetime: DateTime }> {
 	state = {
@@ -9,17 +10,16 @@ export default class MainDateTime extends Component<{}, { datetime: DateTime }> 
 	}
 	render({}, { datetime }) {
 		return (
-			<div>
-				<h3>Input</h3>
+			<div className="pure-form pure-g">
+				<label className="pure-u-1">Input ISO datetime</label>
 				<DateInput onChange={dt => this.setState({ datetime: dt })} />
-				<h3>Output</h3>
-				{datetime ?
-					<div>
-						<DateOutput datetime={ datetime } />
-						<p>Epoch (ms): {datetime.toMillis()}</p>
-					</div>
-					: <span>No legal date</span>
-				}				
+				<label className="pure-u-1">Output ISO datetime</label>
+				<DateOutput datetime={ datetime } />
+				<label className="pure-u-1">Output epoch (ms)</label>
+				<InputReadonly
+					value={datetime ? datetime.toMillis() : 'Invalid input'}
+					disable={!datetime}
+				/>
 			</div>
 		);
 	}

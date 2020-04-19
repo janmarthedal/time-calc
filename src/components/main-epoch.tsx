@@ -9,14 +9,11 @@ export default class MainEpoch extends Component<{}, { datetime: DateTime }> {
 	}
 	render({}, { datetime }) {
 		return (
-			<div>
-				<h3>Input</h3>
+			<div className="pure-form pure-g">
+				<label className="pure-u-1">Input epoch</label>
 				<EpochInput onChange={dt => this.setState({ datetime: dt })} />
-				<h3>Output</h3>
-				{datetime ?
-					<DateOutput datetime={ datetime } />
-					: <span>No legal epoch</span>
-				}				
+				<label className="pure-u-1">Output ISO datetime</label>
+				<DateOutput datetime={ datetime } />
 			</div>
 		);
 	}

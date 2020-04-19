@@ -1,11 +1,12 @@
 import { h } from "preact";
 
-export default ({ value }: { value: string }) => (
+export default ({ value, disable }: { value: string, disable: boolean }) => (
     <input
-        class="pure-u-1 pure-u-md-3-5"
+        className="pure-u-1 pure-u-md-3-5"
         type="text"
         value={value}
-        readOnly
-        style={{ backgroundColor: 'inherit', color: 'inherit' }}
+        readOnly={!disable}
+        disabled={disable}
+        style={!disable && { backgroundColor: 'inherit', color: 'inherit' }}
     />
 );

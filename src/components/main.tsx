@@ -10,13 +10,17 @@ export default class Main extends Component {
 		return (
 			<main>
 				<h1>Time Calculator</h1>
-				<h2>Datetime</h2>
-				<MainDateTime />
-				<h2>Epoch</h2>
-				<MainEpoch />
+				<section>
+					<h2>Datetime</h2>
+					<MainDateTime />
+				</section>
+				<section>
+					<h2>Epoch</h2>
+					<MainEpoch />
+				</section>
 				<datalist id="timezones">
 					{timezones.map(tz => <option>{tz}</option>)}
-				</datalist>	  
+				</datalist>
 			</main>
 		);
 	}

@@ -6,7 +6,7 @@ export default class TimeZone extends Component<{
 	render({ zone, onChange, disabled }) {
 		return (
 			<input 
-				class="pure-u-1 pure-u-md-2-5"
+				className="pure-u-1 pure-u-md-2-5"
 				type="text"
 				value={zone}
 				list="timezones"

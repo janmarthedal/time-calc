@@ -1,3 +1,4 @@
+import { Fragment } from 'preact';
 import { DateTime } from 'luxon';
 import { h, Component } from 'preact';
 import TimeZone from './timezone';
@@ -34,7 +35,7 @@ export default class DateInput extends Component<
 		const updateText = (text: string) => updateState(text, zone, ownZone);
 		const updateZone = (zone: string) => updateState(text, zone, ownZone);
 		return (
-			<form class="pure-form pure-g">
+			<Fragment>
 				<input
 					class="pure-u-1 pure-u-md-3-5"
 					type="text"
@@ -46,7 +47,7 @@ export default class DateInput extends Component<
 					onChange={updateZone}
 					disabled={ownZone}
 				/>
-			</form>
+			</Fragment>
 		);
 	}
 }
