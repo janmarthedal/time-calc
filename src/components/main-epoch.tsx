@@ -10,7 +10,7 @@ export default class MainEpoch extends Component<{}, { datetime: DateTime }> {
 	render({}, { datetime }) {
 		return (
 			<Fragment>
-				<label class="pure-u-1">Input epoch (ms)</label>
+				<label class="pure-u-1">Input epoch</label>
 				<EpochInput onChange={dt => this.setState({ datetime: dt })} />
 				<label class="pure-u-1">Output ISO datetime</label>
 				<DateOutput datetime={ datetime } />
