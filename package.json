@@ -18,7 +18,7 @@
   "author": "Jan Marthedal Rasmussen",
   "license": "MIT",
   "dependencies": {
-    "luxon": "^1.23.0",
+    "luxon": "^2.5.2",
     "preact": "^10.4.0",
     "typescript": "^3.8.3"
   },
